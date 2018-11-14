@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>fi.metatavu.feign</groupId>
+  <artifactId>feign-uma</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>Feign UMA</name>
+  <description>Feign UmaErrorDecoder for handling uma ticket exchange automatically</description>
+  <url>https://github.com/Metatavu/feign-uma</url>
+
+  <licenses>
+    <license>
+      <name>GNU Affero General Public License v3</name>
+      <url>http://www.gnu.org/licenses/agpl-3.0.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
+  <developers>
+    <developer>
+      <name>Metatavu Oy</name>
+      <organization>Metatavu Oy</organization>
+      <organizationUrl>http://www.metatavu.fi</organizationUrl>
+    </developer>
+  </developers>
+  
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/Metatavu/feign-uma/issues</url>
+  </issueManagement>
+
+  <scm>
+    <developerConnection>scm:git:git@github.com:Metatavu/feign-uma.git</developerConnection>
+    <url>git@github.com:Metatavu/feign-uma.git</url>
+    <connection>scm:git:git@github.com:Metatavu/feign-uma.git</connection>
+    <tag>HEAD</tag>
+  </scm>
+
+  <organization>
+    <name>Metatavu Oy</name>
+    <url>http://www.metatavu.fi</url>
+  </organization>
+
+  <properties>
+    <!-- Project -->
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
+    <!-- Maven -->
+
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    
+    <!-- Feign -->
+    
+    <feign.version>9.4.0</feign.version>
+
+  </properties>
+
+  <build>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <plugins> <!--
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M1</version>
+      </plugin> -->
+    </plugins>
+  </build>
+  
+  <dependencies>
+  
+    <dependency>
+      <groupId>io.github.openfeign</groupId>
+      <artifactId>feign-core</artifactId>
+      <version>${feign.version}</version>
+    </dependency>
+    
+  </dependencies>
+  
+</project>

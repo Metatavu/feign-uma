@@ -57,7 +57,6 @@ public class UmaErrorDecoder extends Default {
         return new RptForbiddenFeignException("No UMA Ticket");
       }
     }
-    
     return super.decode(methodKey, response);
   }
   
@@ -69,7 +68,7 @@ public class UmaErrorDecoder extends Default {
    */
   private Map<String, String> getUmaTicket(Response response) {
     Collection<String> headerValues = response.headers().get("www-authenticate");
-    if (!headerValues.isEmpty()) {
+    if (headerValues != null && !headerValues.isEmpty()) {
       String authenticate = headerValues.iterator().next();
       
       if (authenticate != null && authenticate.startsWith("UMA ")) {
@@ -96,6 +95,10 @@ public class UmaErrorDecoder extends Default {
    * @throws IOException when io error fails
    */
   private String getRPT(String authorization, Map<String, String> ticket) throws IOException {
+    if (authorization == null || "".equals(authorization.trim())) {
+      return null;
+    }
+    
     String url = ticket.get("as_uri");
     if (url == null) {
       throw new RptForbiddenFeignException("UMA ticket does not contain as_uri");
@@ -109,35 +112,6 @@ public class UmaErrorDecoder extends Default {
     
     return accessToken.getAccessToken();
     
-//    
-//    AccessToken target = 
-//      .
-//      .target(AccessToken.class, url);
-//    
-//    
-//    try (CloseableHttpClient client = HttpClientBuilder.create().build()) {
-//      HttpPost post = new HttpPost(url);
-//      EntityBuilder entityBuilder = EntityBuilder.create();
-//      
-//      entityBuilder.setParameters(
-//        new BasicNameValuePair("grant_type", "urn:ietf:params:oauth:grant-type:uma-ticket"),
-//        new BasicNameValuePair("ticket", ticket.get("ticket")),
-//        new BasicNameValuePair("submit_request", "false")
-//      );
-//      
-//      post.setHeader("Authorization", authorization);
-//      post.setHeader("Content-Type", "application/x-www-form-urlencoded");
-//      
-//      post.setEntity(entityBuilder.build());
-//      HttpResponse response = client.execute(post);
-//      HttpEntity httpEntity = response.getEntity();
-//
-//      try (InputStream body = httpEntity.getContent()) {
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        Map<String, Object> token = objectMapper.readValue(body, new TypeReference<Map<String, Object>>() { });
-//        return (String) token.get("access_token");
-//      }
-//    }
   }
   
 }

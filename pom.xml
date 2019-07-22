@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>fi.metatavu.feign</groupId>
   <artifactId>feign-uma</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Feign UMA</name>
   <description>Feign UmaErrorDecoder for handling uma ticket exchange automatically</description>
@@ -33,7 +33,7 @@
     <developerConnection>scm:git:git@github.com:Metatavu/feign-uma.git</developerConnection>
     <url>git@github.com:Metatavu/feign-uma.git</url>
     <connection>scm:git:git@github.com:Metatavu/feign-uma.git</connection>
-    <tag>1.0.2</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <organization>

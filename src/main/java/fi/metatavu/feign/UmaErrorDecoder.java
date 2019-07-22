@@ -96,7 +96,7 @@ public class UmaErrorDecoder extends Default {
    */
   private String getRPT(String authorization, Map<String, String> ticket) throws IOException {
     if (authorization == null || "".equals(authorization.trim())) {
-      System.out.println("RTP getter says: token is null");
+      return null;
     }
     
     String url = ticket.get("as_uri");

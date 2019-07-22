@@ -38,7 +38,6 @@ public class UmaErrorDecoder extends Default {
 
   @Override
   public Exception decode(String methodKey, Response response) {
-    System.out.println("Uma decoder startiтg " + response.status());
     if (response.status() == 401) {      
       Map<String, String> umaTicket = getUmaTicket(response);
       if (umaTicket != null) {
@@ -58,7 +57,6 @@ public class UmaErrorDecoder extends Default {
         return new RptForbiddenFeignException("No UMA Ticket");
       }
     }
-    System.out.println("Reffered to super method");
     return super.decode(methodKey, response);
   }
   
